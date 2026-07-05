@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的技术博客 - 记录运维与开发的日常</title>
+    <title>守护地球 · 低碳生活 - 共筑绿色家园</title>
     <style>
         * {
             margin: 0;
@@ -12,36 +12,32 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
             line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8faf7;
         }
 
         a {
             text-decoration: none;
-            color: #2d8cf0;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: #1b6edb;
+            color: inherit;
         }
 
         /* 顶部导航栏 */
-        .header {
-            background-color: #1f2937;
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
+        .navbar {
+            position: fixed;
             top: 0;
-            z-index: 100;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            z-index: 1000;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
             height: 64px;
             display: flex;
             align-items: center;
@@ -50,384 +46,508 @@
 
         .logo {
             font-size: 20px;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .nav-menu {
+            font-weight: 700;
+            color: #2e7d32;
             display: flex;
-            gap: 28px;
-            list-style: none;
+            align-items: center;
+            gap: 8px;
         }
 
-        .nav-menu a {
-            color: #e5e7eb;
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
             font-size: 15px;
         }
 
-        .nav-menu a:hover {
-            color: #fff;
+        .nav-links a {
+            color: #455a64;
+            transition: color 0.3s;
         }
 
-        /* 主体容器 */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
+        .nav-links a:hover {
+            color: #2e7d32;
         }
 
-        /* 文章列表区 */
-        .post-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .post-card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 24px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-
-        .post-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .post-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .post-meta {
-            color: #9ca3af;
-            font-size: 13px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .post-summary {
-            color: #4b5563;
-            font-size: 14px;
-            margin-bottom: 14px;
-        }
-
-        .post-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: #eff6ff;
-            color: #2563eb;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-        }
-
-        /* 侧边栏 */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .widget {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-        }
-
-        .widget-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        /* 博主信息 */
-        .author-info {
-            text-align: center;
-        }
-
-        .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #e5e7eb;
-            margin: 0 auto 12px;
+        /* 首屏宣传区 */
+        .hero {
+            margin-top: 64px;
+            height: 90vh;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            color: #6b7280;
+            text-align: center;
+            padding: 0 24px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .author-name {
+        .hero::before {
+            content: "🌍";
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.08;
+            right: -50px;
+            bottom: -80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #1b5e20;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #388e3c;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: #2e7d32;
+            color: #fff;
+            border-radius: 50px;
             font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
         }
 
-        .author-desc {
-            font-size: 13px;
-            color: #6b7280;
+        .btn:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 125, 50, 0.4);
         }
 
-        /* 分类列表 */
-        .category-list {
-            list-style: none;
+        /* 通用板块样式 */
+        .section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .category-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #f3f4f6;
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #1b5e20;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #607d8b;
+            margin-bottom: 56px;
+            font-size: 16px;
+        }
+
+        /* 碳排放危害板块 */
+        .harm-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .harm-card {
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s;
+            border-top: 4px solid #66bb6a;
+        }
+
+        .harm-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .harm-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .harm-card h3 {
+            font-size: 18px;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .harm-card p {
             font-size: 14px;
+            color: #607d8b;
+            line-height: 1.6;
+        }
+
+        /* 低碳行动板块 */
+        .action-section {
+            background: #f1f8e9;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .action-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .action-img {
+            height: 160px;
+            background: linear-gradient(135deg, #a5d6a7, #81c784);
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
         }
 
-        .category-list li:last-child {
-            border-bottom: none;
+        .action-content {
+            padding: 24px;
         }
 
-        /* 代码块样式示例 */
-        pre {
-            background: #1f2937;
-            color: #e5e7eb;
-            padding: 16px;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-size: 13px;
-            font-family: "Consolas", "Monaco", monospace;
-            margin: 12px 0;
+        .action-content h3 {
+            font-size: 18px;
+            color: #2e7d32;
+            margin-bottom: 10px;
         }
 
-        code {
-            font-family: "Consolas", "Monaco", monospace;
+        .action-content p {
+            font-size: 14px;
+            color: #607d8b;
+            line-height: 1.7;
+        }
+
+        /* 环保数据板块 */
+        .data-section {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: #fff;
+        }
+
+        .data-section .section-title {
+            color: #fff;
+        }
+
+        .data-section .section-subtitle {
+            color: #c8e6c9;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .data-item h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .data-item p {
+            font-size: 15px;
+            color: #c8e6c9;
+        }
+
+        /* 呼吁板块 */
+        .call-section {
+            text-align: center;
+            padding: 100px 24px;
+            background: #f8faf7;
+        }
+
+        .call-section h2 {
+            font-size: 32px;
+            color: #1b5e20;
+            margin-bottom: 20px;
+        }
+
+        .call-section p {
+            font-size: 16px;
+            color: #607d8b;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
         }
 
         /* 页脚 */
         .footer {
-            background: #1f2937;
-            color: #9ca3af;
+            background: #1b5e20;
+            color: #c8e6c9;
             text-align: center;
-            padding: 24px 0;
-            margin-top: 40px;
-            font-size: 13px;
+            padding: 32px 24px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin-bottom: 6px;
         }
 
         /* 回到顶部 */
-        .back-to-top {
+        .back-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 44px;
-            height: 44px;
-            background: #2d8cf0;
+            width: 48px;
+            height: 48px;
+            background: #2e7d32;
             color: #fff;
             border: none;
             border-radius: 50%;
+            font-size: 20px;
             cursor: pointer;
-            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
             display: none;
-            box-shadow: 0 2px 8px rgba(45, 140, 240, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-top:hover {
+            background: #1b5e20;
         }
 
         /* 响应式适配 */
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
+        @media (max-width: 960px) {
+            .harm-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-
-            .nav-menu {
-                gap: 16px;
+            .action-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            .hero h1 {
+                font-size: 36px;
             }
         }
 
         @media (max-width: 600px) {
-            .nav-container {
-                flex-direction: column;
-                height: auto;
-                padding: 12px 20px;
-                gap: 10px;
+            .nav-links {
+                display: none;
+            }
+            .harm-grid {
+                grid-template-columns: 1fr;
+            }
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .section-title {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
     <!-- 顶部导航 -->
-    <header class="header">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Tech Notes</div>
-            <ul class="nav-menu">
-                <li><a href="#">首页</a></li>
-                <li><a href="#">文章归档</a></li>
-                <li><a href="#">分类</a></li>
-                <li><a href="#">关于我</a></li>
+            <div class="logo">🌱 绿色地球</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#harm">环境现状</a></li>
+                <li><a href="#action">低碳行动</a></li>
+                <li><a href="#data">环保数据</a></li>
+                <li><a href="#call">加入我们</a></li>
             </ul>
         </div>
-    </header>
+    </nav>
 
-    <!-- 主体内容 -->
-    <div class="container">
-        <!-- 左侧文章列表 -->
-        <main class="post-list">
-            <article class="post-card">
-                <h2 class="post-title"><a href="#">铁威马 NAS 配置 Cloudflare DDNS 完整教程</a></h2>
-                <div class="post-meta">
-                    <span>📅 2026-07-05</span>
-                    <span>👁️ 328 阅读</span>
-                </div>
-                <p class="post-summary">
-                    详细记录在铁威马 TNAS 系统上通过 Docker 部署 ddns-go，对接 Cloudflare 域名实现动态域名解析的全过程，包含镜像拉取失败、DNS 解析异常等常见问题的排查与解决。
-                </p>
-                <div class="post-tags">
-                    <span class="tag">NAS</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">DDNS</span>
-                </div>
-            </article>
+    <!-- 首屏宣传 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>守护地球，从减少碳排放开始</h1>
+            <p>每一次绿色出行，每一度节约用电，都是在为我们共同的家园续航。<br>
+            低碳生活不是口号，而是我们每个人都能践行的日常。</p>
+            <a href="#action" class="btn">了解低碳做法</a>
+        </div>
+    </section>
 
-            <article class="post-card">
-                <h2 class="post-title"><a href="#">VMware ESXi 7.0 部署 Ubuntu 26.04 远程桌面踩坑记录</a></h2>
-                <div class="post-meta">
-                    <span>📅 2026-07-04</span>
-                    <span>👁️ 512 阅读</span>
-                </div>
-                <p class="post-summary">
-                    从 xrdp 频繁登录失败，到切换 NoMachine 与 GNOME 原生远程桌面的完整对比，整理 Ubuntu 桌面版远程访问的常见问题、原因分析与最终解决方案。
-                </p>
-                <div class="post-tags">
-                    <span class="tag">ESXi</span>
-                    <span class="tag">Ubuntu</span>
-                    <span class="tag">远程桌面</span>
-                </div>
-            </article>
-
-            <article class="post-card">
-                <h2 class="post-title"><a href="#">家用宽带公网 IP 与端口映射配置指南</a></h2>
-                <div class="post-meta">
-                    <span>📅 2026-07-02</span>
-                    <span>👁️ 407 阅读</span>
-                </div>
-                <p class="post-summary">
-                    北京移动华为光猫改桥接、申请公网 IP、路由器端口映射的完整步骤，以及 DDNS 配合外网访问内网服务的安全加固建议。
-                </p>
-                <div class="post-tags">
-                    <span class="tag">网络</span>
-                    <span class="tag">运维</span>
-                    <span class="tag">家庭实验室</span>
-                </div>
-            </article>
-
-            <article class="post-card">
-                <h2 class="post-title"><a href="#">Linux 常用运维命令速查手册</a></h2>
-                <div class="post-meta">
-                    <span>📅 2026-06-28</span>
-                    <span>👁️ 689 阅读</span>
-                </div>
-                <p class="post-summary">
-                    整理日常运维中高频使用的系统监控、网络排查、文件处理、服务管理类命令，附带示例与适用场景，方便快速查阅。
-                </p>
-<pre><code># 查看端口监听
-ss -tlnp
-# 查看系统服务状态
-systemctl status nginx
-# 实时查看日志
-tail -f /var/log/syslog</code></pre>
-                <div class="post-tags">
-                    <span class="tag">Linux</span>
-                    <span class="tag">命令行</span>
-                    <span class="tag">运维</span>
-                </div>
-            </article>
-        </main>
-
-        <!-- 右侧侧边栏 -->
-        <aside class="sidebar">
-            <div class="widget author-info">
-                <div class="avatar">👨‍💻</div>
-                <div class="author-name">Dong</div>
-                <p class="author-desc">
-                    家庭运维爱好者<br>
-                    记录折腾 NAS、虚拟化与网络的日常
-                </p>
+    <!-- 碳排放危害 -->
+    <section class="section" id="harm">
+        <h2 class="section-title">碳排放正在改变我们的地球</h2>
+        <p class="section-subtitle">温室气体过量排放，正在引发一系列不可逆的环境危机</p>
+        
+        <div class="harm-grid">
+            <div class="harm-card">
+                <div class="harm-icon">🌡️</div>
+                <h3>全球气温升高</h3>
+                <p>工业革命以来全球平均气温已上升约1.1℃，极端高温天气频发。</p>
             </div>
-
-            <div class="widget">
-                <h3 class="widget-title">文章分类</h3>
-                <ul class="category-list">
-                    <li><a href="#">NAS 相关</a><span>(8)</span></li>
-                    <li><a href="#">虚拟化</a><span>(12)</span></li>
-                    <li><a href="#">Linux 运维</a><span>(15)</span></li>
-                    <li><a href="#">网络配置</a><span>(6)</span></li>
-                    <li><a href="#">踩坑记录</a><span>(21)</span></li>
-                </ul>
+            <div class="harm-card">
+                <div class="harm-icon">🌊</div>
+                <h3>海平面上升</h3>
+                <p>冰川融化导致海平面逐年上升，沿海城市与岛国面临淹没风险。</p>
             </div>
+            <div class="harm-card">
+                <div class="harm-icon">🔥</div>
+                <h3>极端灾害增加</h3>
+                <p>暴雨、干旱、森林火灾等极端气象灾害发生频率与强度显著提升。</p>
+            </div>
+            <div class="harm-card">
+                <div class="harm-icon">🐋</div>
+                <h3>生物多样性锐减</h3>
+                <p>栖息地破坏与气候异常加速物种灭绝，破坏地球生态平衡。</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="widget">
-                <h3 class="widget-title">热门标签</h3>
-                <div class="post-tags">
-                    <span class="tag">Docker</span>
-                    <span class="tag">ESXi</span>
-                    <span class="tag">Ubuntu</span>
-                    <span class="tag">铁威马</span>
-                    <span class="tag">DDNS</span>
-                    <span class="tag">SSH</span>
-                    <span class="tag">家庭网络</span>
+    <!-- 低碳行动 -->
+    <section class="section action-section" id="action">
+        <h2 class="section-title">日常生活中的低碳行动</h2>
+        <p class="section-subtitle">小事汇聚力量，每个人都能成为环保的践行者</p>
+        
+        <div class="action-grid">
+            <div class="action-card">
+                <div class="action-img">🚲</div>
+                <div class="action-content">
+                    <h3>绿色出行</h3>
+                    <p>优先选择步行、骑行或公共交通出行，短途出行减少私家车使用，既能降低碳排放，也能锻炼身体。</p>
                 </div>
             </div>
-
-            <div class="widget">
-                <h3 class="widget-title">友情链接</h3>
-                <ul class="category-list">
-                    <li><a href="#">Cloudflare</a></li>
-                    <li><a href="#">ddns-go 项目</a></li>
-                    <li><a href="#">铁威马官方</a></li>
-                </ul>
+            <div class="action-card">
+                <div class="action-img">💡</div>
+                <div class="action-content">
+                    <h3>节约用电</h3>
+                    <p>随手关灯、拔掉闲置电器插头，选用节能家电，合理设置空调温度，每一度电都能减少燃煤排放。</p>
+                </div>
             </div>
-        </aside>
-    </div>
+            <div class="action-card">
+                <div class="action-img">🥬</div>
+                <div class="action-content">
+                    <h3>减少浪费</h3>
+                    <p>践行光盘行动，减少食物浪费；少用一次性餐具与塑料袋，自带水杯与购物袋，拒绝过度包装。</p>
+                </div>
+            </div>
+            <div class="action-card">
+                <div class="action-img">♻️</div>
+                <div class="action-content">
+                    <h3>垃圾分类</h3>
+                    <p>做好生活垃圾分类，促进资源回收再利用，减少垃圾填埋与焚烧带来的温室气体排放。</p>
+                </div>
+            </div>
+            <div class="action-card">
+                <div class="action-img">🌳</div>
+                <div class="action-content">
+                    <h3>植树护绿</h3>
+                    <p>积极参与植树造林活动，爱护身边绿植，植物通过光合作用吸收二氧化碳，是天然的碳汇。</p>
+                </div>
+            </div>
+            <div class="action-card">
+                <div class="action-img">📢</div>
+                <div class="action-content">
+                    <h3>传播理念</h3>
+                    <p>向身边人分享环保知识与低碳技巧，让更多人加入环保行列，形成绿色生活的社会共识。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 环保数据 -->
+    <section class="section data-section" id="data">
+        <h2 class="section-title">这些数字值得我们警惕</h2>
+        <p class="section-subtitle">环保刻不容缓，行动就在当下</p>
+        
+        <div class="data-grid">
+            <div class="data-item">
+                <h2>1.1℃</h2>
+                <p>全球平均气温上升幅度</p>
+            </div>
+            <div class="data-item">
+                <h2>421ppm</h2>
+                <p>大气中二氧化碳浓度</p>
+            </div>
+            <div class="data-item">
+                <h2>100万+</h2>
+                <p>物种面临灭绝威胁</p>
+            </div>
+            <div class="data-item">
+                <h2>3.2mm</h2>
+                <p>海平面年上升高度</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 呼吁行动 -->
+    <section class="call-section" id="call">
+        <h2>地球的未来，取决于我们今天的选择</h2>
+        <p>低碳生活不是负担，而是一种更健康、更可持续的生活方式。从今天开始，从身边小事做起，用每一个微小的行动，守护我们共同的蓝色星球。</p>
+        <a href="#home" class="btn">开启低碳生活</a>
+    </section>
 
     <!-- 页脚 -->
     <footer class="footer">
-        <p>© 2026 Tech Notes · 用 ❤️ 记录技术日常</p>
-        <p style="margin-top: 6px;">备案号：京ICP备XXXXXXXX号</p>
+        <p>© 2026 绿色地球环保宣传 | 守护家园，你我同行</p>
+        <p>保护环境，功在当代，利在千秋</p>
     </footer>
 
     <!-- 回到顶部按钮 -->
-    <button class="back-to-top" id="backTop" onclick="scrollToTop()">↑</button>
+    <button class="back-top" id="backTop">↑</button>
 
     <script>
-        // 回到顶部功能
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 64,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 回到顶部显示控制
         const backBtn = document.getElementById('backTop');
-        
-        window.onscroll = function() {
-            if (document.documentElement.scrollTop > 300) {
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 400) {
                 backBtn.style.display = 'block';
             } else {
                 backBtn.style.display = 'none';
             }
         };
 
-        function scrollToTop() {
+        backBtn.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }
+        });
     </script>
 </body>
 </html>
